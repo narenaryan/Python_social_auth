@@ -9,8 +9,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^$', 'sapp.views.home'),
+    url(r'^$', 'sapp.views.login' ,name="index"),
     url(r'^home/$', 'sapp.views.home'),
-    url(r'^logout/$', 'sapp.views.logout'),
+    url(r'^logoff/$', 'sapp.views.logout'),
+     url(r'^signup/$', 'sapp.views.signup'),
+
 
 )

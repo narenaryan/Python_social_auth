@@ -29,6 +29,32 @@
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
 
+.header {
+color: #d4d4d4;
+height: 65px;
+overflow: hidden;
+text-shadow: 0 -1px #121414;
+background-color: #373b3d;
+background-repeat: no-repeat;
+}
+
+
+.header #branding {
+height: 45px;
+float: left;
+min-width: 200px;
+border-right: 1px solid #2f3334;
+}
+
+.right_align {
+
+font-size: 1.2em;
+position:fixed;
+right:10px;
+top:5px;
+
+}
+
 .omb_login .omb_loginOr {
 	position: relative;
 	font-size: 1.5em;

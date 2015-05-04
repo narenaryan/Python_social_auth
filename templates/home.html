@@ -2,87 +2,62 @@
 
 {% block main %}
  <div>
-
 <div class="container">
 
- <ul>
-   {% if user and not user.is_anonymous %}
-     <li>
-       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
-     </li>
-     <li>
-       <a href="/logout">Logout</a>
-     </li>
-  </ul>
-   {% else %}
-    <div class="omb_login">
-      <h3 class="omb_authTitle">Konnect</h3>
-    <div class="row omb_row-sm-offset-3 omb_socialButtons">
-          <div class="col-xs-4 col-sm-2">
-            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-facebook">
-              <i class="fa fa-facebook visible-xs"></i>
-              <span class="hidden-xs">Facebook</span>
-            </a>
-          </div>
-          <div class="col-xs-4 col-sm-2">
-            <a href= "{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-twitter">
-              <i class="fa fa-twitter visible-xs"></i>
-              <span class="hidden-xs">Twitter</span>
-            </a>
-          </div>  
-          <div class="col-xs-4 col-sm-2">
-            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-lg btn-block omb_btn-google">
-              <i class="fa fa-google-plus visible-xs"></i>
-              <span class="hidden-xs">Google+</span>
-            </a>
-          </div>  
-    </div>
+<br /><br />
 
-    <div class="row omb_row-sm-offset-3 omb_loginOr">
-      <div class="col-xs-12 col-sm-6">
-        <hr class="omb_hrOr">
-        <span class="omb_spanOr">or</span>
-      </div>
-    </div>
 
-    <div class="row omb_row-sm-offset-3">
-      <div class="col-xs-12 col-sm-6">  
-          <form class="omb_loginForm" action="" autocomplete="off" method="POST">
-          {% csrf_token %}
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            <input type="text" class="form-control" name="username" placeholder="email address">
-          </div>
-          <br />
-                    
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input  type="password" class="form-control" name="password" placeholder="Password">
-          </div>
-          <br />
-          <br />
-                    <span class="help-block" style="display:None">Incorrect Credentials</span>
+<div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Add Integration</h3>
+                            </div>
+                            <div class="panel-body">
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        </form>
-      </div>
-      </div>
-    <div class="row omb_row-sm-offset-3">
-      <div class="col-xs-6 col-sm-3">
-        <label>
-        Don't have an account? Login with Social sites above or sign up here
-        </label>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <p class="omb_forgotPwd">
-          <a href="#">Signup</a>
-        </p>
-      </div>
-    </div>        
-  </div>
-   {% endif %}
+
+     <div class= "row">
+
+     <div class="col-lg-6">
+
+                    <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+                    {% csrf_token %}
+                            <div class="form-group">
+                                <label>Knowlarity details</label>
+                                <input class="form-control" name="knowlarity_number" placeholder="Knowlarity number">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Application details</label>
+                                <br />
+                                  <div class="form-group">
+                                <div class= "row">
+                                <div class="col-lg-4">
+                                <p>Application type</p>
+                                </div>
+                                <div class="col-lg-8">
+                                <select class="form-control" name="integ">
+                                    <option selected disabled hidden value=''></option>
+                                    <option value="freshdesk">Freshdesk</option>
+                                    <option value="salesforce">Salesforce</option>
+                                </select>
+                                </div>
+                                </div>
+                                <br />
+                                <input class="form-control" name="app_url" placeholder="Application URL">
+                                <br />
+                                <input class="form-control" name="api_key" placeholder="Application's API Key">
+                                
+                            </div>
+                            <button type="submit" class="btn btn-default">Save</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+
+                        </form>
+
+                    </div>
+     </div>
  
  </div>
+</div>
+</div>
 {% endblock %}
 
 
